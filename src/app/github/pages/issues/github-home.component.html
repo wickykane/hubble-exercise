@@ -26,10 +26,10 @@
                                     <tbody *ngFor="let item of _data['list_item']; let i = index;">
                                         <tr>
                                             <td (click)="openDetailIssue(item)" style="cursor: pointer;">
-                                                <span>{{ item.title }} </span>
+                                                <span class="font-weight-bold" style="font-size: 15px;">{{ item.title }} </span>
                                                 <span class="badge badge-light"
                                                     [ngStyle]="{'background': '#' + item.labels[0]?.color }">{{ item.labels[0]?.name }}</span>
-
+                                                <p style="font-size: 12px;" class="mt-1 text-secondary">#{{item.number}} opened on {{ item.created_at | date: 'MMM d'}} by {{ item.user?.login}}</p>
                                             </td>
                                         </tr>
                                     </tbody>

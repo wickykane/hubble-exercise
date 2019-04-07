@@ -22,11 +22,13 @@ export class IssueDetailComponent implements OnInit {
   getDetailIssue() {
     this._data['loading'] = true;
     forkJoin(
-      this.githubService.getDetailIssue(this.item['number'])
+      this.githubService.getDetailIssue(this.item['number']),
+      this.githubService.getDetailIssueComment(this.item['number']),
       ).pipe(finalize( () => {
         this._data['loading'] = false;
       })).subscribe(results => {
         this._data['issue'] = results[0];
+        this._data['comments'] = [results[0],  ...results[1]];
       });
   }
 

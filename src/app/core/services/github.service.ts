@@ -14,4 +14,9 @@ export class GithubService {
     const uri = 'repos/nnluukhtn/employment_bot/issues/' + id;
     return this.API.get(uri);
   }
+
+  getDetailIssueComment(id) {
+    const uri = 'repos/nnluukhtn/employment_bot/issues/' + id + '/comments';
+    return this.API.get(uri);
+  }
 }
