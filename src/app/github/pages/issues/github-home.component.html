@@ -1,0 +1,50 @@
+<div class="marvel-container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Issues</strong>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="searchForm">
+                        <div class="table-responsive">
+                            <app-loading [enable]="_data['loading']">
+                                <table class="table table-bordered table-hover" cdArrowTable
+                                    [collection]="_data['list_item']" [(selectedIndex)]="selectedIndex"
+                                    (onEnter)="goToDetail($event)">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label class="mr-3" for="">Filter: </label>
+                                                <select (change)="onStateChange()" formControlName="state">
+                                                    <option *ngFor="let item of _data['state']" [value]="item.value">
+                                                        {{ item.name }}</option>
+                                                </select>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngFor="let item of _data['list_item']; let i = index;">
+                                        <tr>
+                                            <td (click)="openDetailIssue(item)" style="cursor: pointer;">
+                                                <span>{{ item.title }} </span>
+                                                <span class="badge badge-light"
+                                                    [ngStyle]="{'background': '#' + item.labels[0]?.color }">{{ item.labels[0]?.name }}</span>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody *ngIf="!_data['list_item'] || !_data['list_item']?.length">
+                                        <tr class="text-center">
+                                            <td colspan="100%">No data</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </app-loading>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

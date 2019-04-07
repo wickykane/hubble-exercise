@@ -1,0 +1,10 @@
+.marvel-container {
+  min-height: calc(100vh - 100px);
+  padding: 1rem 2rem;
+  .table {
+    min-width: 468px;
+    .row-selected {
+      border-left: 5px solid rgb(168, 76, 76)
+    }
+  }
+}

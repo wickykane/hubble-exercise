@@ -1,0 +1,43 @@
+<!-- <app-loading [enable]="_data['loading']">
+  <div class="character-container p-5">
+    <div class="row" *ngIf="_data['character']">
+      <div class="col-md-6 text-center">
+        <img class="img-fluid mb-3"
+          [src]="[_data['character'].thumbnail.path, _data['character'].thumbnail.extension].join('.')"
+          alt="{{ _data['character'].name }}" />
+      </div>
+      <div class="col-md-6">
+        <h2>{{ _data['character']?.name }}</h2>
+        <div [innerHTML]="_data['character']['description'] || 'No description'"></div>
+        <hr>
+        <div>
+          <ul class="list-group ml-3">
+            <li *ngFor="let item of _data['comics']" class="list-item mb-3">
+              <span class="font-weight-bold">{{ item.title }}</span>
+              <div class="d-flex mt-3">
+                <div>
+                  <img style="min-width: 100px" width="100" class="img-thumbnail"
+                    [src]="[item.thumbnail.path, item.thumbnail.extension].join('.')" alt="{{ item.name }}">
+                </div>
+                <p class="pl-3 pr-3 d-flex align-items-center" [innerHTML]="item.description"></p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-loading> -->
+
+<div class="modal-header">
+  <h4 class="modal-title">{{item.title}}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p [innerHTML]="item.body"></p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close()">Close</button>
+</div>
