@@ -1,7 +1,5 @@
 import { ApiService } from './api.service';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { map } from 'rxjs/operators';
 
 @Injectable()
 export class GithubService {
